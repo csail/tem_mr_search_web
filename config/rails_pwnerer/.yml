@@ -1,0 +1,5 @@
+--- 
+gems: tem_mr_search
+
+# This doesn't take parallel requests.
+frontends: 1
