@@ -1,0 +1,43 @@
+<div class="zebox">
+  <div class="header">
+    <p class="title">
+      Fare Search
+    </p>
+    <%= render :partial => 'queries/show_actions' %>   
+  </div>
+
+  <div class="contents">
+    <div class="item kvp">
+      <p>From</p>
+      <p><%=h @query.start_city %></p>
+    </div>
+
+    <div class="item kvp">
+      <p>To</p>
+      <p><%=h @query.end_city %></p>
+    </div>
+    
+    <div class="item kvp">
+      <p>Layover cost ($ / layover)</p>
+      <p><%=h @query.layover_cost %></p>
+    </div>
+    
+    <div class="item kvp">
+      <p>Starting time cost ($ / minute)</p>
+      <p><%=h @query.time_cost %></p>
+    </div>
+    
+    
+    <div class="item kvp">
+      <p>Duration cost ($ / minute)</p>
+      <p><%=h @query.duration_cost %></p>
+    </div>
+	</div>
+
+  <div class="footer">
+    <%= render :partial => 'queries/show_actions' %>   
+  </div>
+</div>
+
+<%= render :partial => 'queries/results',
+           :locals => { :results => @query.results, :title => 'Results' } %>

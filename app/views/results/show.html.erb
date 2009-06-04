@@ -1,0 +1,43 @@
+<p>
+  <b>Record:</b>
+  <%=h @result.record_id %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%=h @result.score %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%=h @result.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%=h @result.end_time %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @result.price %>
+</p>
+
+<p>
+  <b>Layovers:</b>
+  <%=h @result.layovers %>
+</p>
+
+<p>
+  <b>Departure:</b>
+  <%=h @result.departure %>
+</p>
+
+<p>
+  <b>Arrival:</b>
+  <%=h @result.arrival %>
+</p>
+
+
+<%= link_to 'Edit', edit_result_path(@result) %> |
+<%= link_to 'Back', results_path %>

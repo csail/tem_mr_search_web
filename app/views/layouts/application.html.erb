@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>
+  	<%= controller.controller_name.capitalize %>:
+	<%= controller.action_name %>
+  </title>
+  <%= javascript_include_tag 'prototype', 'effects', 'dragdrop', 'controls',
+                             'lowpro', 'application', :cache => 'all' %>
+  <%= stylesheet_link_tag 'scaffold', 'layout', 'zebox', 'queries',
+                          :cache => 'all' %>
+</head>
+<body>
+	
+<%= render :partial => 'layouts/header' %>
+
+
+<div id="contents">	
+<%= render :partial => 'layouts/flash', :object => flash %>
+<%= yield  %>
+</div>
+
+<%= render :partial => 'layouts/footer' %>
+
+</body>
+</html>

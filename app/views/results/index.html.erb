@@ -1,0 +1,34 @@
+<h1>Listing results</h1>
+
+<table>
+  <tr>
+    <th>Record</th>
+    <th>Score</th>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Price</th>
+    <th>Layovers</th>
+    <th>Departure</th>
+    <th>Arrival</th>
+  </tr>
+
+<% @results.each do |result| %>
+  <tr>
+    <td><%=h result.record_id %></td>
+    <td><%=h result.score %></td>
+    <td><%=h result.start_time %></td>
+    <td><%=h result.end_time %></td>
+    <td><%=h result.price %></td>
+    <td><%=h result.layovers %></td>
+    <td><%=h result.departure %></td>
+    <td><%=h result.arrival %></td>
+    <td><%= link_to 'Show', result %></td>
+    <td><%= link_to 'Edit', edit_result_path(result) %></td>
+    <td><%= link_to 'Destroy', result, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New result', new_result_path %>

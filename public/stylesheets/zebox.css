@@ -1,0 +1,130 @@
+/* Styling for a UI element that works like Gmail's compose box.
+ * Copyright (C) 2009 Victor Costan
+ * 
+ * Licensed under the MIT license.
+ */
+
+
+/* The big box. */
+.zebox {
+  display: block;
+  border: 2px solid #c8d6ff;
+  border-radius: 5px;
+}
+
+/* Borders and coloring for header and footer. */
+.zebox>.header, .zebox>.footer {
+  display: block;
+  overflow: hidden;
+  background: #e3eaff;
+  padding: 1px;
+  vertical-align: baseline;
+}
+/* Header border. */
+.zebox>.header {
+  border-bottom: 1px solid #c8d6ff;
+}
+/* Footer border. */
+.zebox>.footer {
+  border-top: 1px solid #c8d6ff;
+}
+
+/* Styling for the text in the header and footer. */
+.zebox>.header .title, .zebox>.footer .summary {
+  float: left;
+  display: block;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  vertical-align: baseline;
+}
+/* Styling specific to the text in the header. */
+.zebox>.header .title {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: normal;
+}
+/* Styling specific to the text in the footer. */
+.zebox>.footer .summary {
+  font-size: 13px;
+  line-height: normal;
+}
+
+/* Styling for the action buttons in the header and footer. */
+.zebox>.header input[type='submit'], .zebox>.footer input[type='submit'],
+.zebox>.header .action, .zebox>.footer .action {
+  float: right;
+  vertical-align: baseline;
+}
+.action {
+  padding: 3px 3px 0;
+  vertical-align: text-bottom;
+}
+
+/* The contents of the box. */
+.zebox>.contents {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* Horizontal lines after items. */
+.zebox>.contents>.item, .zebox_item {
+  border-bottom: 1px solid #8da4e6;
+}
+.zebox>.contents>.item:last-child, .zebox_item:last-child {
+  border-bottom: none;
+}
+.zebox>.contents>.item.fields, .zebox_item.fields {
+  border-bottom: none;
+}
+
+/* Heading items. */
+.zebox>.contents>.item.heading, .zebox_item.heading {
+  padding: 0.8em 0 2px 2em;
+}
+.zebox>.contents>.item.heading>p, .zebox_item.heading>p {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+
+/* Key-value pair formatting. */
+.zebox>.contents>.item.kvp, .zebox_item.kvp {
+  overflow: hidden;
+}
+.zebox>.contents>.item.kvp>p, .zebox_item.kvp>p {
+  display: block;
+  padding: 2px;
+  padding-left: 30%;
+  margin: 0;
+}
+.zebox>.contents>.item.kvp>p:first-child, .zebox_item.kvp>p:first-child {
+  float: left;
+  width: 30%;
+  font-weight: bold;
+  padding-left: 2px;
+}
+.zebox>.contents>.item.kvp>p:first-child:after,
+.zebox_item.kvp>p:first-child:after {
+  content: ":";
+}
+.zebox>.contents>.item.kvp.question>p:first-child:after,
+.zebox_item.kvp.question>p:first-child:after {
+  content: "?";
+}
+
+
+/* Table formatting. */
+.zebox>.contents>table {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-spacing: 0;
+}
+.zebox>.contents>table>thead>th {
+  text-align: left;
+}
+.zebox>.contents>table>tbody>tr>td {
+  border-top: 1px solid #8da4e6;
+}

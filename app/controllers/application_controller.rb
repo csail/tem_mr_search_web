@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  def mr_server_addr
+    # TODO: admin UI for this setting.
+    "localhost"
+  end
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_city: MyString
+  end_city: MyString
+  max_price: 1
+  prefer_early: false
+
+two:
+  start_city: MyString
+  end_city: MyString
+  max_price: 1
+  prefer_early: false

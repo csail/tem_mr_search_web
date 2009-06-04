@@ -1,0 +1,41 @@
+<div class="zebox"> 
+  <div class="header">
+    <p class="title">
+      <%= title %>
+    </p>
+  </div>
+  
+  <div class="contents">
+    <table>
+      <thead>
+        <th style="text-align: right;">Score</th>
+        <th style="text-align: right;">Flight no</th>
+        <th style="text-align: center;">From</th>
+        <th style="text-align: center;">To</th>
+        <th style="text-align: right;">Departure time</th>
+        <th style="text-align: right;">Arrival time</th>
+        <th style="text-align: right;">Layovers</th>
+        <th style="text-align: right;">Price</th>
+      </thead>
+    
+    <% for result in results %>
+      <tr>
+        <td style="text-align: right;"><%=h result.score %></td>
+        <td style="text-align: right;"><%=h result.record_id %></td>
+        <td style="text-align: center;"><%=h result.start_city %></td>
+        <td style="text-align: center;"><%=h result.end_city %></td>
+        <td style="text-align: right;"><%=h result.start_time %></td>
+        <td style="text-align: right;"><%=h result.end_time %></td>
+        <td style="text-align: right;"><%=h result.layovers %></td>
+        <td style="text-align: right;"><%=h result.price %></td>
+      </tr>
+    <% end %>
+    </table>
+    
+  </div>
+  <div class="footer">
+    <p class="summary">
+      <%= pluralize(results.length, 'fare') %>
+    </p>
+  </div>
+</div>

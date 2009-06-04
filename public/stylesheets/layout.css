@@ -1,0 +1,44 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+#header {
+	margin: 0;
+	padding: 0;
+}
+#contents {
+	width: 800px;
+	margin: 10px auto 5px;
+}
+
+#footer {
+	width: 800px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#header {
+  margin: 0 0 4px 0;
+  padding: 3px 10px 2px 10px;
+  border-bottom: 1px solid #bbb;
+  box-shadow: 1px 1px 4px #bbb;
+  overflow: hidden;
+}
+
+
+/* Always useful */
+.fieldWithErrors {
+	padding: 0;
+}
+span.fieldWithErrors {
+	display: inline;
+	background: inherit;
+	color: red; 
+}
+span.fieldWithErrors input[type=text] {
+	border: 2px inset red;
+}
+
+.hidden {
+	display: none;
+}

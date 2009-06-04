@@ -1,0 +1,44 @@
+<h1>Editing result</h1>
+
+<% form_for(@result) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :record_id %><br />
+    <%= f.text_field :record_id %>
+  </p>
+  <p>
+    <%= f.label :score %><br />
+    <%= f.text_field :score %>
+  </p>
+  <p>
+    <%= f.label :start_time %><br />
+    <%= f.text_field :start_time %>
+  </p>
+  <p>
+    <%= f.label :end_time %><br />
+    <%= f.text_field :end_time %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :layovers %><br />
+    <%= f.text_field :layovers %>
+  </p>
+  <p>
+    <%= f.label :departure %><br />
+    <%= f.text_field :departure %>
+  </p>
+  <p>
+    <%= f.label :arrival %><br />
+    <%= f.text_field :arrival %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @result %> |
+<%= link_to 'Back', results_path %>

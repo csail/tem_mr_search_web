@@ -1,0 +1,61 @@
+<% form_for(@query) do |f| %>
+<div class="zebox">
+  <div class="header">
+    <p class="title">
+      <%= @query.new_record? ? 'Plan Your Trip' : 'Editing' %>
+    </p>
+    <%= render :partial => 'new_edit_actions',
+               :locals => {:query => @query, :form => f} %>		
+  </div>
+	
+  <div class="contents">
+    <%= f.error_messages %>
+		
+    <div class="item heading">
+      <p>Where</p>
+    </div>
+    
+    <div class="item kvp fields">      
+	    <p><%= f.label :start_city, 'From' %></p>
+	    <p><%= f.select :start_city, {'Boston, MA, USA' => 'BOS',
+                                    'Taipei, Tawian' => 'TPE'} %></p>
+		</div>
+    <div class="item kvp fields">
+	    <p><%= f.label :end_city, 'To' %></p>
+	    <p><%= f.select :end_city, {'Taipei, Tawian' => 'TPE',
+                                  'Boston, MA, USA' => 'BOS'} %></p>
+    </div>
+    
+    <div class="item heading">
+      <p>How</p>
+    </div>
+
+    <div class="item kvp fields">
+      <p><%= f.label :layover_cost, 'Layovers' %></p>
+      <p><%= f.select :layover_cost, {"I like layovers (-100)" => -100,
+                                      "I don't care (0)" => 0,
+                                      "I want a cheap ticket (1)" => 1,
+                                      "Reasonably avoid them (100)" => 100,
+                                      "Avoid them at all costs (5000)" => 5000 } %></p>
+    </div>
+				
+    <div class="item kvp fields question">
+		  <p><%= f.label :time_cost, 'When do you want to fly' %></p>
+		  <p><%= f.select :time_cost, {'Early Flights (1)' => 1,
+                                   'Late Fligts (-1)' => -1} %></p>
+		</div>
+
+    <div class="item kvp fields question">
+      <p><%= f.label :duration_cost, 'How fast do you want to get there' %></p>
+      <p><%= f.select :duration_cost, {"I want a cheap ticket (0)" => 0,
+                                       "I'll pay extra to get there faster (1)" => 1,
+                                       "As fast as I can (50)" => 50 } %></p>
+    </div>
+  </div>
+	
+  <div class="footer">
+    <%= render :partial => 'new_edit_actions',
+               :locals => {:query => @query, :form => f} %>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,8 @@
+<%= form.submit(query.new_record? ? 'See Fares' : 'Done') %>
+<div class="action">
+  <% if query.new_record? %>
+  <%= link_to 'Home', queries_path %>
+  <% else %>
+  <%= link_to 'Cancel edits', query %>
+  <% end %>
+</div>

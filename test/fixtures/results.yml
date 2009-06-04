@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  record_id: 1
+  score: 1
+  start_time: 1
+  end_time: 1
+  price: 1
+  layovers: 1
+  departure: MyString
+  arrival: MyString
+
+two:
+  record_id: 1
+  score: 1
+  start_time: 1
+  end_time: 1
+  price: 1
+  layovers: 1
+  departure: MyString
+  arrival: MyString
