@@ -70,7 +70,6 @@ class QueriesController < ApplicationController
                        :duration_cost => @query.duration_cost }
     client_query = Tem::Mr::Search::WebClientQueryBuilder.query builder_params
     summary = Tem::Mr::Search::Client.search mr_server_addr, client_query
-    # summary = { :id => 20 } # HACK: remove this when the MR scheduler stops deadlocking
 
     details = Tem::Mr::Search::Client.fetch_item mr_server_addr, summary[:id]
     
