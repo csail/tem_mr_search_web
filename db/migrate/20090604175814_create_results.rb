@@ -10,6 +10,7 @@ class CreateResults < ActiveRecord::Migration
       t.integer :layovers
       t.string :start_city
       t.string :end_city
+      t.string :timings, :limit => 32.kilobytes
 
       t.timestamps
     end

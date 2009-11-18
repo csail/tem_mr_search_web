@@ -19,4 +19,5 @@
 
 class Result < ActiveRecord::Base
   belongs_to :query
+  serialize :timings
 end

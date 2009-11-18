@@ -71,7 +71,8 @@ class QueriesController < ApplicationController
     client_query = Tem::Mr::Search::WebClientQueryBuilder.query builder_params
     summary = Tem::Mr::Search::Client.search mr_server_addr, client_query
 
-    details = Tem::Mr::Search::Client.fetch_item mr_server_addr, summary[:id]
+    details = Tem::Mr::Search::Client.fetch_item mr_server_addr,
+                                                 summary[:result][:id]
     
     result = result_from_server_response details, summary
     result.save!
@@ -83,8 +84,9 @@ class QueriesController < ApplicationController
     summary ||= {}
     summary[:id] ||= details['flight']
     summary[:score] ||= details_score(details)
-    Result.new :query => @query, :record_id => summary[:id],
-                            :score => summary[:score],
+    Result.new :query => @query, :record_id => summary[:result][:id],
+                            :score => summary[:result][:score],
+                            :timings => summary[:timings],
                             :start_time => details['start_time'],
                             :end_time => details['end_time'],
                             :price => details['price'],

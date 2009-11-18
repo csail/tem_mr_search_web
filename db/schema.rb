@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20090604175814) do
     t.integer  "layovers"
     t.string   "start_city"
     t.string   "end_city"
+    t.string   "timings",    :limit => 32768
     t.datetime "created_at"
     t.datetime "updated_at"
   end

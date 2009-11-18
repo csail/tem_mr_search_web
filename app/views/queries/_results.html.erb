@@ -31,11 +31,76 @@
       </tr>
     <% end %>
     </table>
-    
   </div>
   <div class="footer">
     <p class="summary">
       <%= pluralize(results.length, 'fare') %>
+    </p>
+  </div>
+</div>
+
+<div class="zebox"> 
+  <div class="header">
+    <p class="title">
+      Time Spent per TEM
+    </p>
+  </div>
+  
+  <div class="contents">
+    <table>
+      <thead>
+      	<% results.first.timings[:tems].each_index do |i| %>
+        <th style="text-align: right;">#<%=h i + 1 %></th>
+				<% end %>
+      </thead>
+    
+      <tr>
+      <% results.first.timings[:tems].each do |timing| %>
+        <td style="text-align: right;"><%=h '%.3f' % timing %> s</td>
+      <% end %>
+      </tr>
+    </table>
+  </div>
+  <div class="footer">
+    <p class="summary">
+      Total processing time: <%= h('%.3f' % results.first.timings[:total]) %> s
+    </p>
+  </div>
+</div>
+
+<div class="zebox"> 
+  <div class="header">
+    <p class="title">
+      Time Spent per Task
+    </p>
+  </div>
+  
+  <div class="contents">
+    <table>
+      <thead>
+        <th style="text-align: right;">Total</th>
+        <th style="text-align: right;">Identify TEMs</th>
+        <th style="text-align: right;">Migrate</th>
+        <th style="text-align: right;">Map</th>
+        <th style="text-align: right;">Reduce</th>
+        <th style="text-align: right;">Finalize</th>
+      </thead>
+    
+      <tr>
+        <td style="text-align: right;">
+          <%=h '%.3f' % results.first.timings[:total] %> s
+        </td>      	
+      <% [:tem_ids, :migrate, :map, :reduce, :finalize].each do |task| %>
+        <td style="text-align: right;">
+				  <%=h '%.3f' % results.first.timings[:tasks][task] %> s
+				</td>
+      <% end %>
+      </tr>
+    </table>
+  </div>
+  <div class="footer">
+    <p class="summary">
+      Total processing time: <%= h('%.3f' % results.first.timings[:total]) %> s
     </p>
   </div>
 </div>
