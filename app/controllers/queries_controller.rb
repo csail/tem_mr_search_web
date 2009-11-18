@@ -1,5 +1,3 @@
-require 'tem_mr_search'
-
 class QueriesController < ApplicationController
   # GET /queries
   # GET /queries.xml
