@@ -49,52 +49,42 @@
   <div class="contents">
     <table>
       <thead>
+        <th style="text-align: left;">Task</th>
       	<% results.first.timings[:tems].each_index do |i| %>
-        <th style="text-align: right;">#<%=h i + 1 %></th>
+        <th style="text-align: right;">TEM #<%=h i + 1 %></th>
 				<% end %>
+        <th style="text-align: right;">Total</th>				
       </thead>
     
+      <% [[:tem_ids, 'Identify TEMs'], [:migrate, 'Migrate'], [:map, 'Map'],
+          [:reduce, 'Reduce'], [:finalize, 'Finalize']].each do |task| %>
       <tr>
-      <% results.first.timings[:tems].each do |timing| %>
-        <td style="text-align: right;"><%=h '%.3f' % timing %> s</td>
-      <% end %>
-      </tr>
-    </table>
-  </div>
-  <div class="footer">
-    <p class="summary">
-      Total processing time: <%= h('%.3f' % results.first.timings[:total]) %> s
-    </p>
-  </div>
-</div>
-
-<div class="zebox"> 
-  <div class="header">
-    <p class="title">
-      Time Spent per Task
-    </p>
-  </div>
-  
-  <div class="contents">
-    <table>
-      <thead>
-        <th style="text-align: right;">Total</th>
-        <th style="text-align: right;">Identify TEMs</th>
-        <th style="text-align: right;">Migrate</th>
-        <th style="text-align: right;">Map</th>
-        <th style="text-align: right;">Reduce</th>
-        <th style="text-align: right;">Finalize</th>
-      </thead>
-    
-      <tr>
+        <td style="text-align: left;"><%=h task.last %></td>
+      	
+        <% results.first.timings[:tems].each do |timing| %>
         <td style="text-align: right;">
-          <%=h '%.3f' % results.first.timings[:total] %> s
-        </td>      	
-      <% [:tem_ids, :migrate, :map, :reduce, :finalize].each do |task| %>
-        <td style="text-align: right;">
-				  <%=h '%.3f' % results.first.timings[:tasks][task] %> s
+				  <%=h '%.3f' % timing[task.first] %> s
 				</td>
-      <% end %>
+        <% end %>
+        <td style="text-align: right;">
+          <%=h '%.3f' % results.first.timings[:tems].map { |t| t[task.first] }.
+                                sum %> s
+        </td>
+      </tr>
+			<% end %>
+
+      <tr>
+        <td style="text-align: left;">Total</td>
+        
+        <% results.first.timings[:tems].each do |timing| %>
+        <td style="text-align: right;">
+          <%=h '%.3f' % timing.values.sum %> s
+        </td>
+        <% end %>
+        <td style="text-align: right;">
+          <%=h '%.3f' % results.first.timings[:tems].map { |t| t.values.sum }.
+                                sum %> s
+        </td>
       </tr>
     </table>
   </div>
