@@ -56,7 +56,8 @@
         <th style="text-align: right;">Total</th>				
       </thead>
     
-      <% [[:tem_ids, 'Identify TEMs'], [:migrate, 'Migrate'], [:map, 'Map'],
+      <% [[:tem_ids, 'Identify TEMs'], [:migrate_map, 'Migrate Mapper'],
+          [:migrate_reduce, 'Migrate Reducer'], [:map, 'Map'],
           [:reduce, 'Reduce'], [:finalize, 'Finalize']].each do |task| %>
       <tr>
         <td style="text-align: left;"><%=h task.last %></td>
